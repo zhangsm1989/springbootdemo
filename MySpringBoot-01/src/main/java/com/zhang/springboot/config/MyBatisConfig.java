@@ -34,7 +34,6 @@ import java.sql.SQLException;
 @MapperScan("com.zhang.springboot.dao") //注：@MapperScan(“com.zhang.springboot.dao”) 表示Mybatis的映射路径（package路径）
 public class MyBatisConfig implements TransactionManagementConfigurer {
     private static Logger logger = LoggerFactory.getLogger(MyBatisConfig.class);
-//    private static final String ALIASE_SPACKAGE = "com.zhang.springboot.dao";
     private static final String MYBATIS_CLASSPATH = "classpath:/mybatis/*.xml";
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
