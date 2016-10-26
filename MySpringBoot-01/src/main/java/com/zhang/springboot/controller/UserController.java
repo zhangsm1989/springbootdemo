@@ -38,7 +38,6 @@ public class UserController {
     MessagePublisherService smsNoticQueuePublisher;
 
     @RequestMapping("list")
-    @ResponseBody
     public String queryUserList(Model model, User user) {
         Pager pager = new Pager();
         List<User> userlist = userService.queryUserList(user, pager);
@@ -46,7 +45,8 @@ public class UserController {
             logger.info("userlist:" + JSONObject.toJSON(userlist));
         }
         model.addAttribute("userlist", JSONObject.toJSON(userlist));
-        return "hello";
+        model.addAttribute("hello", JSONObject.toJSON(userlist));
+        return "/hello";
     }
 
     @RequestMapping("update")
