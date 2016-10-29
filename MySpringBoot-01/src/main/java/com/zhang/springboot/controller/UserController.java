@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -49,6 +50,20 @@ public class UserController {
         return "/hello";
     }
 
+    @RequestMapping("getUser")
+    @ResponseBody
+    public User getUser(Model model) {
+        User user = new User();
+        Pager pager = new Pager();
+        List<User> userlist = userService.queryUserList(user, pager);
+        if (userlist != null && userlist.size() > 0) {
+            user = userlist.get(0);
+            logger.info("userlist:" + JSONObject.toJSON(userlist));
+        }
+        model.addAttribute("user", user);
+        return user;
+    }
+
     @RequestMapping("update")
     @ResponseBody
     public String update(Model model) {
@@ -62,27 +77,6 @@ public class UserController {
             logger.info("Success");
         }
         model.addAttribute("flag", flag);
-        return "hello";
-    }
-
-    @RequestMapping("send")
-    @ResponseBody
-    public String send(Model model) {
-        for (int i = 0; i < 100; i++) {
-            BaseSendMessageDTO baseSendMessage = new BaseSendMessageDTO();
-            baseSendMessage.setContent("activeMq............................");
-            baseSendMessage.setAddress("北京市 邮电局."+i);
-            smsNoticQueuePublisher.sendMessage(baseSendMessage);
-            try {
-                logger.info("send activeMq......................................"+i);
-                Thread.sleep(3000l);
-            } catch (InterruptedException e) {
-                logger.info("send activeMq...."+ i +"..................................异常!");
-                continue;
-            }
-        }
-
-
         return "hello";
     }
 

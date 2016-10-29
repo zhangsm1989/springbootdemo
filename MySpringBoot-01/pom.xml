@@ -6,10 +6,10 @@
         <version>1.2.4.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>MySpringBoot-01</artifactId>
+    <artifactId>MySpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>MySpringBoot-01</name>
+    <name>MySpringBoot</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -121,7 +121,7 @@
                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
                 </configuration>
                 <dependencies>
-                    <!--  支持热部署 -->
+                    <!--springloaded  hotdeploy -->
                     <dependency>
                         <groupId>org.springframework</groupId>
                         <artifactId>springloaded</artifactId>
