@@ -1,23 +1,16 @@
 package com.zhang.springboot.controller;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.zhang.springboot.activemq.service.MessagePublisherService;
-import com.zhang.springboot.base.Pager;
 import com.zhang.springboot.model.BaseSendMessageDTO;
-import com.zhang.springboot.model.User;
-import com.zhang.springboot.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <p>Discription:[消息]</p>
+ * <p>Discription:[消息:Restf风格的控制类]</p>
  * Created on 2016-10-07 18:28
  *
  * @param
@@ -25,7 +18,7 @@ import java.util.List;
  * @author:[张山明]
  */
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class MessageMQController {
     private Logger logger = Logger.getLogger(MessageMQController.class);

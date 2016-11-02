@@ -1,7 +1,7 @@
 package com.zhang.springboot.config;
 
 /**
- * Description: [ma文件引用]
+ * Description: [activemq文件引用]
  * Created on 2016/10/12
  *
  * @author <a href="mailto: zhangshanming@camelotchina.com">张山明</a>
