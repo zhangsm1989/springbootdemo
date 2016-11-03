@@ -1,7 +1,13 @@
 package com.zhang.springboot.controller;
 
+import com.zhang.springboot.model.User;
+import com.zhang.springboot.util.SpringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
 
 /**
  * Description: [描述该类概要功能介绍]
@@ -14,9 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping
 public class HomeController {
-
+    @Autowired
+    SpringUtil springUtil;
     @RequestMapping("/")
-    public String index(){
-        return "index";
+    public String index(Model model){
+        UserController userController = (UserController) SpringUtil.getBean("userController");
+        User u = userController.getUser(model);
+        return "/index";
     }
 }
