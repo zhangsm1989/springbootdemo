@@ -91,21 +91,19 @@
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
         </dependency>
-        <!--Json Support-->
+        <!--fastjson-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-
         <!--activemq-->
-        <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-core</artifactId>
             <version>${activemq.version}</version>
         </dependency>
-
+        <!-- jms -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
@@ -149,7 +147,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
-                    <fork>true</fork><!-- 如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+                    <fork>true</fork><!-- 如果没有该项配置，devtools不会起作用，即应用不会restart -->
                 </configuration>
                 <dependencies>
                     <!--springloaded  hotdeploy -->

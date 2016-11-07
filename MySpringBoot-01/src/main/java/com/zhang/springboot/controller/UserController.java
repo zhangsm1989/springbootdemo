@@ -41,10 +41,13 @@ public class UserController {
     @RequestMapping("list")
     public String queryUserList(Model model, User user) {
         Pager pager = new Pager();
+        user.setPassword("name");
+        user.setName("7");
         List<User> userlist = userService.queryUserList(user, pager);
         if (userlist != null && userlist.size() > 0) {
             logger.info("userlist:" + JSONObject.toJSON(userlist));
         }
+        logger.info(JSONObject.toJSON(userlist));
         model.addAttribute("userlist", JSONObject.toJSON(userlist));
         model.addAttribute("hello", JSONObject.toJSON(userlist));
         return "/hello";
