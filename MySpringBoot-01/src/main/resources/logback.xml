@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <configuration>
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">  
-		<file>/logs/${MySpringboot}.log</file>
+		<file>/${loggingRoot}/${loggingName}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${loggingRoot}/logs/${MySpringboot}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>${loggingRoot}/logs/${loggingName}.%d{yyyy-MM-dd}.log</fileNamePattern>
 		</rollingPolicy>
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<pattern>%-20(%d{HH:mm:ss} [%thread]) %-5level %logger{80} - %msg%n</pattern>
