@@ -4,10 +4,14 @@ import com.zhang.springboot.listener.MyApplicationEnvironmentPreparedEventListen
 import com.zhang.springboot.listener.MyApplicationFailedEventListener;
 import com.zhang.springboot.listener.MyApplicationPreparedEventListener;
 import com.zhang.springboot.listener.MyApplicationStartedEventListener;
+import com.zhang.springboot.servlet.MyServlet01;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
+
 
 
 /*
@@ -21,8 +25,19 @@ Spring Boot自动配置（auto-configuration）：尝试根据你添加的jar依
 相当于传统的xml配置文件，如果有些第三方库需要用到xml文件，建议仍然通过@Configuration类作为项目的配置主类——可以使用@ImportResource注解加载xml配置文件
 */
 @SpringBootApplication
+//@ServletComponentScan//这个就是扫描相应的Servlet包;
 public class Application {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
+
+    /**
+     * 注册Servlet不需要添加注解:@ServletComponentScan
+     */
+    @Bean
+    public ServletRegistrationBean MyServlet01(){
+        logger.info("new MyServlet01.................");
+        return new ServletRegistrationBean(new MyServlet01(),"/MyServlet01/*");
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
         logger.info("============= SpringBoot Start Success =============");
