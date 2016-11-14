@@ -14,8 +14,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
-        <junit.version>3.8.1</junit.version>
-        <activemq.version>5.7.0</activemq.version>
+        <!--<junit.version>3.8.1</junit.version>-->
+        <!--<activemq.version>5.7.0</activemq.version>-->
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <mybatis.version>3.2.8</mybatis.version>
         <swagger.version>0.9.5</swagger.version>
@@ -23,17 +23,17 @@
         <fastjson.version>1.1.43</fastjson.version>
     </properties>
 
+
     <dependencies>
         <!-- Add typical dependencies for a web application -->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>-->
-        <!--junit-->
+        <!--test-->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <!--logback-->
@@ -65,6 +65,11 @@
                     <artifactId>logback-classic</artifactId>
                 </exclusion>
             </exclusions>-->
+        </dependency>
+        <!--logback-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
         <!--支持使用 JDBC 访问数据库-->
         <dependency>
@@ -100,10 +105,16 @@
             <version>${fastjson.version}</version>
         </dependency>
         <!--activemq-->
-        <dependency>
+        <!--常规-->
+       <!-- <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-core</artifactId>
             <version>${activemq.version}</version>
+        </dependency>-->
+        <!--springboot 默认的-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-broker</artifactId>
         </dependency>
         <!-- jms -->
         <dependency>
