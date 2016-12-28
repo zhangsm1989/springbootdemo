@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    一、  不指定id，只配置必须的全限定类名-->
+    <bean class="com.ming.spring1.impl.HelloImpl"/>
+
+    <!--    二、指定id,必须在Ioc容器唯一 -->
+    <bean id="helloBean1" class="com.ming.spring1.impl.HelloImpl"/>
+
+    <!--三、指定name，这样name就是“标识符”，必须在Ioc容器中唯一；-->
+    <bean name="helloBean3" class="com.ming.spring1.impl.HelloImpl"/>
+
+    <!--四、指定id和name，id就是标识符，而name就是别名，必须在Ioc容器中唯一；-->
+    <bean name="aliasBean" id="helloId4" class="com.ming.spring1.impl.HelloImpl"/>
+     <!--如果id和name一样，IoC容器能检测到，并消除冲突 -->
+    <bean name="helloBean4_1" id="helloBean4_1" class="com.ming.spring1.impl.HelloImpl"/>
+</beans>
